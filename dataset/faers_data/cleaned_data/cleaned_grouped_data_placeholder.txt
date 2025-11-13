@@ -1,0 +1,1 @@
+This is the location that the group and cleaned data csv and json will appear after parsing the downloaded XML. This is performed by the data_regulator_utils.py function.
