@@ -1,15 +1,14 @@
-#Step 1: This step serves to download the data source to be inspected and to unzip it.
+#Step 1: This step serves to download the data source(s) to be inspected and to unzip it.
 
 import requests
 import os
 import xml.etree.ElementTree as ET
-import pandas as pd
 import glob
 import subprocess
 
 BASE_URL = "https://fis.fda.gov/content/Exports/"
 
-def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "dataset"):
+def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "dataset/faers_data"):
     if quarter not in (1, 2, 3, 4):
         raise ValueError("Quarter must be 1, 2, 3, or 4")
     if year < 2012:
@@ -86,8 +85,6 @@ def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "data
                             "reaction": reaction_term
                         })
 
-
-year = int(input('Year of data to be used: '))
-quarter = int(input("Quarter (1, 2, 3, or 4): "))
-fetch_and_extract_faers_xml(year, quarter)
+    print ("Step 1 complete: XML extracted to: ", extract_dir)
+    return extract_dir
 
