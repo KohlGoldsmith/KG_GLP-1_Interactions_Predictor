@@ -6,5 +6,6 @@
   dulaglutide (Trulicity), liraglutide (Victoza, Saxenda), exenatide (Byetta, Bydureon), and tirzepatide (Mounjaro, Zepbound).
 
 ### Configuration / Setup
-  Copy the schema of the Github through cloning or manual setup.
+  Copy the directory schema of the Github through cloning or manual setup.
+  
   
