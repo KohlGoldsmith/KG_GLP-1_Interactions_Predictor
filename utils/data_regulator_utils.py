@@ -1,4 +1,4 @@
-# Step 2
+# Step 2 Data Interpretation
 
 # The python file takes an XML file and parses it by putting it into a csv and json file format
 import xml.etree.ElementTree as ET
