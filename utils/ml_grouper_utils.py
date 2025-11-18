@@ -3,11 +3,6 @@
 import pandas as pd
 import ast
 from pathlib import Path
-# utils/step5_flatten_lists.py
-
-import pandas as pd
-import ast
-from pathlib import Path
 
 def flatten_grouped_lists(grouped_csv_path: str, output_dir: str) -> str:
     print ("Beginning step 5: Flattening grouped lists")
