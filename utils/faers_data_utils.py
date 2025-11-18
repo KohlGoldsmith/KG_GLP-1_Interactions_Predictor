@@ -1,4 +1,4 @@
-#Step 1: This step serves to download the data source(s) to be inspected and to unzip it.
+#Step 1: This step serves to download the data source to be inspected and to unzip it.
 
 import requests
 import os
