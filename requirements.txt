@@ -1,1 +1,15 @@
-
+requests
+lxml
+pandas
+xmltodict
+matplotlib.pyplot
+seaborn
+scikit-learn
+pathlib
+sklearn.preprocessing
+ast
+datetime
+glob
+xml.etree.ElementTree
+os
+subprocess
