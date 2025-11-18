@@ -1,51 +1,55 @@
-#Step 5
+#Step 5 Flattening the data to be usable
 
 import pandas as pd
+import ast
+from pathlib import Path
+# utils/step5_flatten_lists.py
 
-# Load grouped data
-grouped_df = pd.read_csv("/Users/kohlgoldsmith/PycharmProjects/Kohl_Goldsmith_GLP-1_Interactions_Predictor/dataset/faers_data/cleaned_data/grouped_cleaned_data.csv")
 import pandas as pd
+import ast
+from pathlib import Path
 
-# Assume grouped_df is your grouped DataFrame from previous step
+def flatten_grouped_lists(grouped_csv_path: str, output_dir: str) -> str:
+    print ("Beginning step 5: Flattening grouped lists")
+    grouped_df = pd.read_csv(grouped_csv_path)
 
-# Step 0: Replace any non-list entries with empty lists for safety
-for col in ['drug','substance','indication','reaction']:
-    grouped_df[col] = grouped_df[col].apply(lambda x: x if isinstance(x, list) else [])
+    # Convert list-like strings to readable lists
+    list_columns = ["drug", "substance", "indication", "reaction"]
+    for col in list_columns:
+        grouped_df[col] = grouped_df[col].apply(
+            lambda x: ast.literal_eval(x) if isinstance(x, str) else []
+        )
 
-# Step 1: Determine max lengths of lists in each column
-max_drugs = grouped_df['drug'].apply(len).max()
-max_substances = grouped_df['substance'].apply(len).max()
-max_indications = grouped_df['indication'].apply(len).max()
-max_reactions = grouped_df['reaction'].apply(len).max()
+    # Compute maximum lengths
+    max_len = {
+        col: grouped_df[col].apply(len).max()
+        for col in list_columns
+    }
 
-# Step 2: Flatten lists into separate columns safely
-flattened_df = grouped_df.copy()
+    flattened_df = grouped_df.copy()
 
-# Drugs
-for i in range(max_drugs):
-    flattened_df[f'drug_{i+1}'] = flattened_df['drug'].apply(lambda x: x[i] if i < len(x) else None)
+    # Expand each list column into numbered columns
+    for col in list_columns:
+        for i in range(max_len[col]):
+            flattened_df[f"{col}_{i+1}"] = flattened_df[col].apply(
+                lambda lst, idx=i: lst[idx] if idx < len(lst) else None
+            )
 
-# Substances
-for i in range(max_substances):
-    flattened_df[f'substance_{i+1}'] = flattened_df['substance'].apply(lambda x: x[i] if i < len(x) else None)
+    # Drop original list columns
+    flattened_df = flattened_df.drop(columns=list_columns)
 
-# Indications
-for i in range(max_indications):
-    flattened_df[f'indication_{i+1}'] = flattened_df['indication'].apply(lambda x: x[i] if i < len(x) else None)
+    # Ensure output directory
+    output_path_dir = Path(output_dir)
+    output_path_dir.mkdir(parents=True, exist_ok=True)
 
-# Reactions
-for i in range(max_reactions):
-    flattened_df[f'reaction_{i+1}'] = flattened_df['reaction'].apply(lambda x: x[i] if i < len(x) else None)
+    # Save files
+    output_csv = str(output_path_dir / "flattened_cleaned_data.csv")
+    output_json = str(output_path_dir / "flattened_cleaned_data.json")
 
-# Step 3: Drop original list columns
-flattened_df = flattened_df.drop(columns=['drug','substance','indication','reaction'])
+    flattened_df.to_csv(output_csv, index=False)
+    flattened_df.to_json(output_json, orient="records", lines=True)
 
-# Step 4: Save flattened data
-output_csv = "/Users/kohlgoldsmith/PycharmProjects/Kohl_Goldsmith_GLP-1_Interactions_Predictor/dataset/faers_data/cleaned_data/flattened_cleaned_data.csv"
-flattened_df.to_csv(output_csv, index=False)
+    print("\nStep 5: List flattening completed.")
+    print(flattened_df.head())
 
-output_json = "/Users/kohlgoldsmith/PycharmProjects/Kohl_Goldsmith_GLP-1_Interactions_Predictor/dataset/faers_data/cleaned_data/flattened_cleaned_data.json"
-flattened_df.to_json(output_json, orient="records", lines=True)
-
-# Step 5: Preview
-print(flattened_df.head())
+    return output_csv
