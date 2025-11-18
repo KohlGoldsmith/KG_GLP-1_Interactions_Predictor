@@ -1,5 +1,5 @@
-#Helper function designed to fetch the latest data available from FAERS so that new
-#information is available to a user
+# Helper function designed to fetch the latest data available from FAERS so that new
+# Information is available to a user
 import requests
 from datetime import datetime
 
