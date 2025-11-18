@@ -7,5 +7,9 @@
 
 ### Configuration / Setup
   Copy the directory schema of the Github through cloning or manual setup.
+
+### Running the file for validation
+  Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
+  Once this is completed, real analysis can be done.
   
   
