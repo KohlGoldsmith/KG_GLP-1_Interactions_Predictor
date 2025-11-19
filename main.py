@@ -25,7 +25,8 @@ def main():
 
     # STEP 2
     cleaned_csv = regulate_data(extract_dir=extracted_dir, output_dir="dataset/faers_data/cleaned_data")
-    # STEP 3
+    
+    # STEP 3 Not necessary in current testing phase
     #flattened_df, flattened_csv_path = csv_reader(cleaned_csv)
 
     # STEP 4
