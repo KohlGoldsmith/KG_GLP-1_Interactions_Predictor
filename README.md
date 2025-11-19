@@ -8,8 +8,10 @@
 ### Configuration / Setup
   Copy the directory schema of the Github through cloning or manual setup.
 
-### Running the file for validation
+### Running the main file for date preprocessing
   Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
   Once this is completed, real analysis can be done.
-  
+
+  ### Next step, training.
+  Once data has successfully been preprocessed into a faers_with_embeddings_ready.csv file, run the rf_model_test.py in the testing directory to perform a random forest training sesion on the data.
   
