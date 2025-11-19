@@ -17,4 +17,4 @@
   
 <img width="311" height="403" alt="Screenshot 2025-11-19 at 9 58 00 AM" src="https://github.com/user-attachments/assets/143ee652-22bc-4654-ad10-18757721ac50" />
 
-Use the setting above to set testing parameters. This should be possible to implement on a web front end if everything funtions correctly.
+Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a web front end if everything funtions correctly.
