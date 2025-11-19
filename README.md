@@ -15,3 +15,6 @@
   ### Next step, training.
   Once data has successfully been preprocessed into a faers_with_embeddings_ready.csv file, run the rf_model_test.py in the testing directory to perform a random forest training sesion on the data.
   
+<img width="311" height="403" alt="Screenshot 2025-11-19 at 9 58 00 AM" src="https://github.com/user-attachments/assets/143ee652-22bc-4654-ad10-18757721ac50" />
+
+Use the setting above to set testing parameters. This should be possible to implement on a web front end if everything funtions correctly.
