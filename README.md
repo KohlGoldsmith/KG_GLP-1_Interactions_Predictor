@@ -7,6 +7,8 @@
 
 ### Configuration / Setup
   Copy the directory schema of the Github through cloning or manual setup.
+  You *WILL* be missing the Unique_Side_Effect.csv needed to run the preprocessing stages. That can be found here: https://github.com/TIML-Group/HODDI/blob/main/dataset/HODDI_v2/dictionary/Side_effects_unique.csv
+  Download this file and put it into your /dictionary directory.
 
 ### Running the main file for date preprocessing
   Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
