@@ -1,4 +1,4 @@
-#Step 5 Flattening the data to be usable
+# Flattening the data to be usable by the ML algorithms
 
 import pandas as pd
 import ast
