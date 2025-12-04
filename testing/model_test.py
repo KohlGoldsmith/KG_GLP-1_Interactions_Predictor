@@ -16,6 +16,10 @@ plt.rcParams['figure.figsize'] = (12, 8)
 ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_path = os.path.join(ROOT_DIR, "dataset", "processed", "faers_with_embeddings_ready.csv")
 
+# Create the output directory
+OUTPUT_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "NN_results")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
 # 1. Load Data
 if not os.path.exists(csv_path):
     raise FileNotFoundError(f"CSV not found at: {csv_path}")
@@ -129,14 +133,26 @@ def custom_predict(model, X_input, thresholds, targets, is_list):
 # Pass scaled data to predict
 y_pred_optimized = custom_predict(model, X_test_scaled, best_thresholds, target_drugs, is_list_output)
 
-print("\n=== Classification Report (Optimized) ===")
-print(classification_report(y_test, y_pred_optimized, target_names=target_drugs, zero_division=0))
+# Generate the classification report
+report_dict = classification_report(y_test, y_pred_optimized, target_names=target_drugs, zero_division=0, output_dict=True)
+report_text = classification_report(y_test, y_pred_optimized, target_names=target_drugs, zero_division=0)
+
+
+print("\nClassification Report:")
+print(report_text)
+
+# Exporting text to output file
+report_filepath = os.path.join(OUTPUT_DIR, "classification_report.txt")
+with open(report_filepath, 'w') as f:
+    f.write("Classification Report:\n")
+    f.write(report_text)
+print(f"Classification report exported to: {report_filepath}")
 
 # User Input and Predictions
 
 print("\nGenerating Prediction for User Profile:")
 # Manually change these parameters totest for different side effects. This would be placed as a dropdown if on a webapp
-user_symptoms = ["Abdominal pain", "Vomiting", "Dizziness"]
+user_symptoms = ["Abdominal pain", "Nausea", "Gastrointestinal disorder"]
 
 # A. Generate Symptom Embeddings
 mean_embedding = generate_symptom_vector(user_symptoms, MAPPING_DF)
@@ -144,10 +160,12 @@ emb_features = {f"emb_{i}": mean_embedding[i] for i in range(EMBEDDING_DIM)}
 
 # B. Construct User Input
 # Change these parameters manually to test different drugs and age or sex of subject.
-user_input_base = {'age': 55}
+user_input_base = {'age': 61}
 for col in sex_cols: user_input_base[col] = 0
-male_col = next((c for c in sex_cols if 'male' in c.lower() and 'female' not in c.lower()), None)
-if male_col: user_input_base[male_col] = 1
+
+# Change to female if necessary
+female_col = next((c for c in sex_cols if 'female' in c.lower() and 'male' not in c.lower()), None)
+if female_col: user_input_base[female_col] = 1
 
 for col in glp1_cols:
     user_input_base[col] = 0
@@ -186,10 +204,16 @@ print("\nTop 10 Predicted Co-Occurring Drugs (Raw Probabilities):")
 print(top_results.head(10))
 
 # Visualizations
+symptoms_str = ", ".join(user_symptoms)
 plt.figure(figsize=(10, 8))
 sns.barplot(x=top_results.values, y=top_results.index, palette="viridis")
-plt.title(f"Top 20 Predicted Drug Associations (Neural Net)\n(GLP-1: Semaglutide, Age: 55, User Symptoms: ", user_symptoms, ")")
+plt.title(f"Top 20 Predicted Drug Associations (Neural Net)\n(GLP-1: Semaglutide, Age: 55, User Symptoms: {symptoms_str})")
 plt.xlabel("Predicted Probability")
 plt.ylabel("Drug Name")
 plt.tight_layout()
+
+# Exporting plots to output file
+plot_filepath = os.path.join(OUTPUT_DIR, "top_drug_associations.png")
+plt.savefig(plot_filepath)
+print(f"Plot exported to: {plot_filepath}")
 plt.show()
