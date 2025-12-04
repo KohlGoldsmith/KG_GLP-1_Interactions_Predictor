@@ -15,10 +15,47 @@
 ### Running the main file for date preprocessing
   Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
   Once this is completed, real analysis can be done.
+  
 
-  ### Using processed data and running models
-  Once data has successfully been preprocessed into a faers_with_embeddings_ready.csv file, run the rf_model_test.py in the testing directory to perform a random forest training sesion on the data.
+### Using processed data and running models
+Once data has successfully been preprocessed into a faers_with_embeddings_ready.csv file by running main.py, run the rf_model_test.py in the testing directory to perform a random forest training sesion on the data.
   
 <img width="311" height="403" alt="Screenshot 2025-11-19 at 9 58 00 AM" src="https://github.com/user-attachments/assets/143ee652-22bc-4654-ad10-18757721ac50" />
 
-Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a web front end if everything funtions correctly.
+Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
+
+### Video Explanation
+Linked here is a video guide and description of my justifications and breakdown of the code: XXX
+
+### Research and Justifications
+
+#### Target Population 
+The population selected for this model comprises individuals diagnosed with Type 2 Diabetes Mellitus, Obesity (BMI ≥ 30 kg/m²), or any individuals who are currently prescribed Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) [1]. 
+
+#### High Risk Population
+Cardiovascular disease is very righ risk in this population and GLP-1 agonists are a newer form of preventative measure against this for issues such as glycemic control [1]. The potential for high-order adverse drug reactions is elevated in this group, due to the newness of mass adoption of these drugs. Additionally, the direct medical costs and prevalence of cardiovascular conditions are projected to rise significantly through to 2050 [7]. Therefore, seeking to predict and prevent adverse drug reactions for this population is the focus of this application. Drug-related morbidity currently costs the U.S. healthcare system an estimated $528 billion annually [6].
+
+#### Compound Formulation Risks
+A distinct subset of this population takes  compounded semaglutide due to supply shortages and costs. Unlike FDA-approved products, these compounded formulations lack rigorous oversight and have been documented to contain incorrect salt forms (e.g., semaglutide sodium) or varying concentrations [5]. However, FAERS database  has been validated as a reliable source for detecting adverse drug reactions in GLP-1 users [2] is a baseline for detecting and possibly responding in emergent drug interaction events. This model is built to predict possible interactions from the use of specific GLP-1 agonists and their compounded forms in order to provide an on-site analysis using up to date medical data.
+
+### References
+[1] Lincoff, A. M., et al. (2023). Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. The New England Journal of Medicine, 389, 2221–2232. https://doi.org/10.1056/NEJMoa2307563
+Relevance: Establishes the high-risk cardiovascular profile of the target population and the drug's efficacy, justifying the "High Risk" classification.
+
+[2] Shu, Y., et al. (2022). Gastrointestinal adverse events associated with semaglutide: A pharmacovigilance study based on FDA Adverse Event Reporting System. Frontiers in Endocrinology, 13, 996179. https://doi.org/10.3389/fendo.2022.996179
+Relevance: Primary literature analyzing the exact database (FAERS) you are using; validates the prevalence of GI adverse events.
+
+[3] Hooper, A. J., & Liu, X. (2024). GLP-1RA-induced delays in gastrointestinal motility: Predicted effects on coadministered drug absorption by PBPK analysis. Clinical Pharmacology & Therapeutics. https://doi.org/10.1002/cpt.3188
+Relevance: Provides the pharmacokinetic mechanism (delayed gastric emptying) that causes the drug-drug interactions your model seeks to predict.
+
+[4] Sodhi, M., et al. (2023). Risk of Gastrointestinal Adverse Events Associated With Glucagon-Like Peptide-1 Receptor Agonists for Weight Loss. JAMA, 330(18), 1795–1797. https://doi.org/10.1001/jama.2023.19574
+Relevance: Quantifies the risk of severe side effects (pancreatitis, gastroparesis) in the weight-loss population specifically.
+
+[5] Spitery, A., et al. (2024). Legal, safety, and practical considerations of compounded injectable semaglutide. Journal of the American College of Clinical Pharmacy, 7(9), 941-946. https://doi.org/10.1002/jac5.1999
+Relevance: Directly addresses the safety gap in compounded medications, a key differentiator of your project.
+
+[6] Watanabe, J. H., McInnis, T., & Hirsch, J. D. (2018). Cost of Prescription Drug-Related Morbidity and Mortality. Annals of Pharmacotherapy, 52(9), 829–837. https://doi.org/10.1177/1060028018765159
+Relevance: Provides the economic data on the cost of non-optimized drug therapy and adverse events.
+
+[7] Martin, S. S., Aday, A. W., Almarzooq, Z. I., et al. (2024). 2024 Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association. Circulation, 149. https://doi.org/10.1161/CIR.0000000000001209
+Relevance: Provides the statistics for the projected economic burden of cardiovascular disease in the target population
