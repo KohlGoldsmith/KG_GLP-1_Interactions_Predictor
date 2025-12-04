@@ -2,25 +2,24 @@
 ## Kohl Goldsmith for MTU SAT5141 Clinical Decision Support & AI Modelling
 
 ### Purpose
-  The idea of this project is to provide AI driven predictions in drug-drug interactions. Specifically involving the more frequently used and novel GLP-1 drugs like semaglutide (Ozempic, Wegovy, Rybelsus), 
-  dulaglutide (Trulicity), liraglutide (Victoza, Saxenda), exenatide (Byetta, Bydureon), and tirzepatide (Mounjaro, Zepbound).
+The idea of this project is to provide AI driven predictions in drug-drug interactions. Specifically involving the more frequently used and novel GLP-1 drugs like semaglutide (Ozempic, Wegovy, Rybelsus), dulaglutide (Trulicity), liraglutide (Victoza, Saxenda), exenatide (Byetta, Bydureon), and tirzepatide (Mounjaro, Zepbound).
 
 ### Configuration / Setup
-  Copy the directory schema of the Github through cloning or manual setup.
-  Make sure to run *pip install -r requirements.txt* to ensure the packages are installed onto your system.
-  You *WILL* be missing the Unique_Side_Effect.csv needed to run the preprocessing stages. 
-  That can be found here: https://github.com/TIML-Group/HODDI/blob/main/dataset/HODDI_v2/dictionary/Side_effects_unique.csv
-  Download this file and put it into your **/dictionary** directory.
+Copy the directory schema of the Github through cloning or manual setup.
+Make sure to run *pip install -r requirements.txt* to ensure the packages are installed onto your system.
+You *WILL* be missing the Unique_Side_Effect.csv needed to run the preprocessing stages. 
+That can be found here: https://github.com/TIML-Group/HODDI/blob/main/dataset/HODDI_v2/dictionary/Side_effects_unique.csv
+Download this file and put it into your **/dictionary** directory.
 
 ### Running the main file for date preprocessing
-  Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
-  Once this is completed, real analysis can be done.
+Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
+Once this is completed, analysis and training operations can begin.
   
 
 ### Using processed data and running models
-Once data has successfully been preprocessed into a faers_with_embeddings_ready.csv file by running main.py, run the rf_model_test.py in the testing directory to perform a random forest training sesion on the data.
+Once data has successfully been pre-processed into a faers_with_embeddings_ready.csv file by running main.py, run the model_test.py in the testing directory to perform the training and vizualisation code on the pre-processed data.
   
-<img width="311" height="403" alt="Screenshot 2025-11-19 at 9 58 00 AM" src="https://github.com/user-attachments/assets/143ee652-22bc-4654-ad10-18757721ac50" />
+
 
 <img width="1370" height="945" alt="image" src="https://github.com/user-attachments/assets/c0ac26b5-7e28-4c1d-9133-509a4b25845c" />
 
