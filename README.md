@@ -16,7 +16,7 @@ Run main.py, watching for errors in saving, data is recommended to come from 202
 Once this is completed, analysis and training operations can begin.
   
 
-### Using processed data and running models
+### Using Processed Data Running Models, and Model Results
 Once data has successfully been pre-processed into a faers_with_embeddings_ready.csv file by running main.py, run the model_test.py in the testing directory to perform the training and vizualisation code on the pre-processed data.
   
 
@@ -29,6 +29,10 @@ Originally, a Random-Forest model was used for analysis, however due to its poor
 However, after implementing this more robust model, I discovered that using MultiOutputClassifier in XGBoost creates a Binary Relevance problem. It trains a separate model for every single drug of which this list has several hundred. This led to an issue of training occuring for an unending length, obviously not realistic or achievable with this project's resources.
 
 A neural network model was eventually chosen as a middle ground, as neural networks perform well on data with high-dimensional input and output space [9].
+
+<img width="1527" height="972" alt="image" src="https://github.com/user-attachments/assets/1ed0d9ee-1a97-4fd9-8551-60c2cb23c11c" />
+
+These results are much more consistent, although still lacking in very strong connections that could be marketable.
 
 ##Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
 
@@ -45,6 +49,11 @@ Cardiovascular disease is very righ risk in this population and GLP-1 agonists a
 
 #### Compound Formulation Risks
 A distinct subset of this population takes  compounded semaglutide due to supply shortages and costs. Unlike FDA-approved products, these compounded formulations lack rigorous oversight and have been documented to contain incorrect salt forms (e.g., semaglutide sodium) or varying concentrations [5]. However, FAERS database  has been validated as a reliable source for detecting adverse drug reactions in GLP-1 users [2] is a baseline for detecting and possibly responding in emergent drug interaction events. This model is built to predict possible interactions from the use of specific GLP-1 agonists and their compounded forms in order to provide an on-site analysis using up to date medical data.
+
+### Conclusions
+The overall performance of the model is somewhat lacking in terms of precision and reliability. I believe this may be due to several factors. First, the idea of the application is difficult to implement, due to the vast quantity of drug-drug adverse reactions and how many of them are likely to be occuring with barebone inputs (nausea, dizziness, etc.). Due to this, a model's confidence in its predictions will almost always be incredibly low as it contains too many false negatives or incredibly high with false positive correlations. Narrowing this scope is incredibly difficult with my chosen parameters.
+
+Another possibility is my lack of understanding in fully understanding model tuning. While this took many iterrations and changes to implement, I admit my newness to this field and study, and still found the model's performance on such a broad data set to be a good first step.
 
 ### References
 [1] Lincoff, A. M., et al. (2023). Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. The New England Journal of Medicine, 389, 2221–2232. https://doi.org/10.1056/NEJMoa2307563
