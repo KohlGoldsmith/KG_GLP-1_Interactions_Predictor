@@ -22,7 +22,12 @@ Once data has successfully been preprocessed into a faers_with_embeddings_ready.
   
 <img width="311" height="403" alt="Screenshot 2025-11-19 at 9 58 00 AM" src="https://github.com/user-attachments/assets/143ee652-22bc-4654-ad10-18757721ac50" />
 
-Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
+<img width="1370" height="945" alt="image" src="https://github.com/user-attachments/assets/c0ac26b5-7e28-4c1d-9133-509a4b25845c" />
+
+
+Originally, a Random-Forest model was used for analysis, however due to its poor results stemming from Random-Forest's aggressive guessing of "Yes" to satisfy the balance requirement, it led to many False Positives. This was substituted for XGBoost, an algorithm  that uses an ensemble of decision trees to solve problems like classification and regression. It is known for its high performance, speed, and scalability, and can handle large datasets by using parallel and distributed computing.
+
+##Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
 
 ### Video Explanation
 Linked here is a video guide and description of my justifications and breakdown of the code: XXX
