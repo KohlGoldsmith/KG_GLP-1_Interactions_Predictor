@@ -1,0 +1,108 @@
+Classification Report:
+                                                             precision    recall  f1-score   support
+
+                                            drug_PREDNISONE       0.31      0.29      0.30      2957
+                                         drug_ACETAMINOPHEN       0.40      0.30      0.34      3452
+                                          drug_METHOTREXATE       0.37      0.28      0.32      1459
+                                             drug_RITUXIMAB       0.55      0.28      0.37      1330
+                                            drug_FOLIC ACID       0.62      0.20      0.30      1111
+                                            drug_ADALIMUMAB       0.70      0.21      0.32      1468
+                                       drug_CHOLECALCIFEROL       0.28      0.18      0.22      1904
+                              drug_CETIRIZINE HYDROCHLORIDE       0.42      0.24      0.31      1249
+                                               drug_ASPIRIN       0.16      0.15      0.15      2216
+                                         drug_SULFASALAZINE       0.64      0.52      0.57       460
+                                           drug_LEFLUNOMIDE       0.78      0.50      0.61       479
+                                            drug_INFLIXIMAB       0.63      0.31      0.42       795
+                                     drug_DICLOFENAC SODIUM       0.74      0.38      0.50       631
+                                               drug_Unknown       0.15      0.22      0.18      3616
+                                              drug_RAMIPRIL       0.44      0.20      0.28       793
+                                     drug_ALBUTEROL SULFATE       0.33      0.28      0.30      1876
+                                             drug_IBUPROFEN       0.20      0.13      0.16      1043
+                                        drug_DESOXIMETASONE       0.72      0.80      0.76       255
+                                          drug_PANTOPRAZOLE       0.21      0.13      0.16      1079
+                                    drug_ALENDRONATE SODIUM       0.72      0.50      0.59       431
+                                   drug_PANTOPRAZOLE SODIUM       0.28      0.14      0.19       845
+                                           drug_TOCILIZUMAB       0.68      0.37      0.48       668
+                                            drug_GABAPENTIN       0.18      0.12      0.14      1588
+                                    drug_HYDROXYCHLOROQUINE       0.53      0.35      0.42       467
+                                             drug_DUPILUMAB       0.66      0.55      0.60      6877
+                                        drug_HYDROCORTISONE       0.49      0.28      0.35       581
+                            drug_HYDROXYCHLOROQUINE SULFATE       0.54      0.37      0.43       471
+                                             drug_OXYCODONE       0.50      0.28      0.36       520
+                                              drug_DUPIXENT       0.66      0.55      0.60      6775
+                                              drug_NAPROXEN       0.46      0.31      0.37       428
+                         drug_DIPHENHYDRAMINE HYDROCHLORIDE       0.36      0.35      0.35       759
+                                   drug_TOFACITINIB CITRATE       0.46      0.26      0.33       996
+                                 drug_PHTHALYLSULFATHIAZOLE       0.70      0.86      0.77       201
+                                            drug_LISINOPRIL       0.29      0.11      0.16       907
+                                               drug_CALCIUM       0.21      0.15      0.18       680
+                                     drug_CALCIUM CARBONATE       0.46      0.33      0.39       448
+                                    drug_CERTOLIZUMAB PEGOL       0.58      0.50      0.54       586
+                                            drug_PREGABALIN       0.34      0.17      0.23       924
+                                  drug_LEVOTHYROXINE SODIUM       0.15      0.13      0.14      1267
+                                        drug_ERGOCALCIFEROL       0.55      0.27      0.36       443
+                                             drug_GOLIMUMAB       0.68      0.36      0.47       584
+                                             drug_CELECOXIB       0.56      0.32      0.41       555
+                                            drug_FUROSEMIDE       0.13      0.18      0.15      1401
+                                            drug_DICLOFENAC       0.41      0.35      0.38       386
+                                            drug_OMEPRAZOLE       0.13      0.05      0.07      1389
+                                drug_HUMAN IMMUNOGLOBULIN G       0.40      0.21      0.28      1041
+                                           drug_VEDOLIZUMAB       0.53      0.38      0.44      1249
+                                          drug_LANSOPRAZOLE       0.29      0.15      0.20       601
+                                             drug_LORAZEPAM       0.30      0.13      0.18       725
+                                   drug_AMLODIPINE BESYLATE       0.14      0.18      0.16      1850
+                               drug_METFORMIN HYDROCHLORIDE       0.36      0.15      0.21      1673
+                                            drug_ETANERCEPT       0.67      0.32      0.43       677
+                                           drug_SECUKINUMAB       0.69      0.35      0.47       751
+                                             drug_ALBUTEROL       0.19      0.16      0.17       780
+                                     drug_CORTISONE ACETATE       0.58      0.80      0.67       178
+                                 drug_FLUMETHASONE PIVALATE       0.59      0.85      0.70       152
+                                  drug_DICLOFENAC POTASSIUM       0.56      0.76      0.64       204
+                         drug_PSEUDOEPHEDRINE HYDROCHLORIDE       0.49      0.60      0.54       201
+                   drug_METHYLPREDNISOLONE SODIUM SUCCINATE       0.35      0.32      0.33       332
+                                       drug_NAPROXEN SODIUM       0.62      0.41      0.49       256
+                                           drug_CANDESARTAN       0.48      0.31      0.38       345
+                                       drug_ALENDRONIC ACID       0.47      0.72      0.57       194
+                         drug_SULFAMETHOXAZOLE\TRIMETHOPRIM       0.22      0.19      0.20       880
+                                    drug_METHYLPREDNISOLONE       0.24      0.16      0.19       783
+                                             drug_MAGNESIUM       0.27      0.12      0.17       592
+                                   drug_QUETIAPINE FUMARATE       0.35      0.28      0.31       439
+                                       drug_DIPHENHYDRAMINE       0.33      0.28      0.30       567
+drug_CETIRIZINE HYDROCHLORIDE\PSEUDOEPHEDRINE HYDROCHLORIDE       0.67      0.68      0.67       162
+                                          drug_ATORVASTATIN       0.17      0.08      0.11      1548
+                               drug_CHLORHEXIDINE GLUCONATE       0.58      0.71      0.64       203
+                                          drug_AZATHIOPRINE       0.30      0.26      0.28       558
+                                            drug_APREMILAST       0.49      0.43      0.46       403
+                                         drug_ASCORBIC ACID       0.41      0.23      0.29       742
+                                                drug_HUMIRA       0.51      0.22      0.31      1046
+                                       drug_SODIUM CHLORIDE       0.22      0.27      0.24       860
+                                         drug_DEXAMETHASONE       0.21      0.09      0.13      1269
+                                           drug_USTEKINUMAB       0.59      0.27      0.37       553
+                                           drug_EPINEPHRINE       0.35      0.27      0.30       714
+                                          drug_PREDNISOLONE       0.17      0.11      0.14       946
+                                             drug_ABATACEPT       0.69      0.39      0.50       732
+                                         drug_LEVOTHYROXINE       0.10      0.03      0.05      1053
+                                drug_TRAMADOL HYDROCHLORIDE       0.36      0.36      0.36       382
+                                            drug_VITAMIN D3       0.20      0.16      0.18      1305
+                                 drug_MYCOPHENOLATE MOFETIL       0.30      0.28      0.29       811
+                               drug_OXYCODONE TEREPHTHALATE       0.51      0.79      0.62       131
+                                               drug_ACTEMRA       0.74      0.48      0.58       442
+                                              drug_COSENTYX       0.62      0.35      0.45       718
+                                    drug_CALCIUM GLUBIONATE       0.52      0.79      0.62       131
+                               drug_TRIAMCINOLONE ACETONIDE       0.32      0.21      0.25       367
+                                                drug_ENBREL       0.64      0.36      0.46       557
+                               drug_OXYCODONE HYDROCHLORIDE       0.25      0.20      0.22       437
+                                               drug_ORENCIA       0.69      0.40      0.50       692
+                                        drug_CYANOCOBALAMIN       0.12      0.09      0.10       824
+                                     drug_ISOPROPYL ALCOHOL       0.55      0.81      0.66       131
+                                               drug_CODEINE       0.45      0.40      0.42       201
+                                             drug_ZOPICLONE       0.38      0.27      0.32       335
+                                            drug_MESALAMINE       0.36      0.29      0.33       555
+                                               drug_XELJANZ       0.61      0.39      0.48       496
+                                            drug_BUDESONIDE       0.24      0.15      0.18       571
+                                                drug_CIMZIA       0.70      0.47      0.57       398
+
+                                                  micro avg       0.39      0.29      0.34     94093
+                                                  macro avg       0.44      0.33      0.36     94093
+                                               weighted avg       0.41      0.29      0.33     94093
+                                                samples avg       0.08      0.08      0.08     94093
