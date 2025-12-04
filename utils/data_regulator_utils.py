@@ -1,11 +1,12 @@
-# Step 2 Data Interpretation
+# Data Interpretation
 
 # The python file takes an XML file and parses it by putting it into a csv and json file format
+# Afterward, it will be cleaned and prepared for OHE and other flattening functions.
+
 import xml.etree.ElementTree as ET
 import pandas as pd
 import glob
 import os
-import ast
 
 # Step 1: Finding the XML
 def regulate_data(extract_dir: str, output_dir: str):
@@ -67,6 +68,7 @@ def regulate_data(extract_dir: str, output_dir: str):
     }).reset_index()
 
 # Step 6: Save grouped/cleaned data
+    os.makedirs(output_dir, exist_ok=True)  # This creates the directory if it doesn't exist
     output_csv_path = os.path.join(output_dir, "grouped_cleaned_data.csv")
     grouped_df.to_csv(output_csv_path, index=False)
 
