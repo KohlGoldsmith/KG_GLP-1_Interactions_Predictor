@@ -2,7 +2,7 @@
 ## Kohl Goldsmith for MTU SAT5141 Clinical Decision Support & AI Modelling
 
 ### Purpose
-The idea of this project is to provide AI driven predictions in drug-drug interactions. Specifically involving the more frequently used and novel GLP-1 drugs like semaglutide (Ozempic, Wegovy, Rybelsus), dulaglutide (Trulicity), liraglutide (Victoza, Saxenda), exenatide (Byetta, Bydureon), and tirzepatide (Mounjaro, Zepbound).
+The idea of this project is to provide AI driven predictions in drug-drug interactions. Specifically involving the more frequently used and novel GLP-1 drugs like semaglutide (Ozempic, Wegovy, Rybelsus), dulaglutide (Trulicity), liraglutide (Victoza, Saxenda), exenatide (Byetta, Bydureon), and tirzepatide (Mounjaro, Zepbound). Using the dictionaries defined in the HODDI dataset [10] were essential for the results of this model.
 
 ### Configuration / Setup
   **Clone the Repository**: Copy the directory schema of the Github through cloning or manual setup.
@@ -19,7 +19,7 @@ Run main.py, watching for errors in saving, data is recommended to come from 202
 Once this is completed, analysis and training operations can begin.
   
 
-### Using Processed Data Running Models, and Model Results
+### Using Processed Data Running Models using Processed Data, and Model Results
 Once data has successfully been pre-processed into a faers_with_embeddings_ready.csv file by running main.py, run the model_test.py in the testing directory to perform the training and vizualisation code on the pre-processed data.
   
 
@@ -27,11 +27,12 @@ Once data has successfully been pre-processed into a faers_with_embeddings_ready
 <img width="1370" height="945" alt="image" src="https://github.com/user-attachments/assets/c0ac26b5-7e28-4c1d-9133-509a4b25845c" />
 
 
-Originally, a Random-Forest model was used for analysis, however due to its poor results stemming from Random-Forest's aggressive guessing of "Yes" to satisfy the balance requirement, it led to many false positives. This was substituted for XGBoost, an algorithm  that uses an ensemble of decision trees to solve problems like classification and regression. It is known for its high performance, speed, and scalability, and can handle large datasets by using parallel and distributed computing [8]. 
+### Model Evolution
+Originally, a **Random-Forest** model was used for analysis, however due to its poor results stemming from Random-Forest's aggressive guessing of "Yes" to satisfy the balance requirement, it led to many false positives. This was substituted with **XGBoost**, an algorithm  that uses an ensemble of decision trees to solve problems like classification and regression. It is known for its high performance, speed, and scalability, and can handle large datasets by using parallel and distributed computing [8]. 
 
 However, after implementing this more robust model, I discovered that using MultiOutputClassifier in XGBoost creates a Binary Relevance problem. It trains a separate model for every single drug of which this list has several hundred. This led to an issue of training occuring for an unending length, obviously not realistic or achievable with this project's resources.
 
-A neural network model was eventually chosen as a middle ground, as neural networks perform well on data with high-dimensional input and output space [9].
+A **neural network** model was eventually chosen as a middle ground, as neural networks perform well on data with high-dimensional input and output space [9].
 
 <img width="1527" height="972" alt="image" src="https://github.com/user-attachments/assets/1ed0d9ee-1a97-4fd9-8551-60c2cb23c11c" />
 
@@ -80,9 +81,11 @@ Relevance: Provides the economic data on the cost of non-optimized drug therapy 
 [7] Martin, S. S., Aday, A. W., Almarzooq, Z. I., et al. (2024). 2024 Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association. Circulation, 149. https://doi.org/10.1161/CIR.0000000000001209
 Relevance: Provides the statistics for the projected economic burden of cardiovascular disease in the target population
 
-[8] XGBoost explanation https://www.geeksforgeeks.org/machine-learning/xgboost/
+[8] XGBoost explanation: https://www.geeksforgeeks.org/machine-learning/xgboost/
 
 [9] Nam, J., Kim, J., Mencía, E. L., Gurevych, I., & Fürnkranz, J. (2014). Large-scale Multi-label Text Classification - Revisiting Neural Networks. Machine Learning and Knowledge Discovery in Databases, 437–452
+
+[10] HODDI Dataset: https://github.com/TIML-Group/HODDI
 
 
 
