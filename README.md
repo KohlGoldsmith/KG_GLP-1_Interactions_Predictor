@@ -40,8 +40,10 @@ These results are much more consistent, although still lacking in very strong co
 
 ##Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
 
-### Video Explanation
-Linked here is a video guide and description of my justifications and breakdown of the code: XXX
+### Video Explanation and Slides
+Linked here are supplmental components for my course SAT 5141.
+- Video guide and description of my justifications and breakdown of the code: XXX
+- Link to Google Drive slideshow paired with the video: XXX
 
 ### Research and Justifications
 
