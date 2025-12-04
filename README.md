@@ -11,7 +11,7 @@ The idea of this project is to provide AI driven predictions in drug-drug intera
 
   **Download Missing Data**: You WILL be missing the Unique_Side_Effect.csv needed to run the preprocessing stages.
     - Download it here: TIML-Group/HODDI/Side_effects_unique.csv
-    - Place it in your /dictionary directory
+    * Place it in your /dictionary directory
 
 ### Running the main file for date preprocessing
 Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
