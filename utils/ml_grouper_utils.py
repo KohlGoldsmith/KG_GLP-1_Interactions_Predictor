@@ -5,7 +5,7 @@ import ast
 from pathlib import Path
 
 def flatten_grouped_lists(grouped_csv_path: str, output_dir: str) -> str:
-    print ("Beginning step 5: Flattening grouped lists")
+    print ("\nBeginning step 3: Flattening grouped lists")
     grouped_df = pd.read_csv(grouped_csv_path)
 
     # Convert list-like strings to readable lists
@@ -44,7 +44,7 @@ def flatten_grouped_lists(grouped_csv_path: str, output_dir: str) -> str:
     flattened_df.to_csv(output_csv, index=False)
     flattened_df.to_json(output_json, orient="records", lines=True)
 
-    print("\nStep 5: List flattening completed.")
+    print("\nStep 3: List flattening completed.")
     print(flattened_df.head())
 
     return output_csv
