@@ -17,6 +17,7 @@ The idea of this project is to provide AI driven predictions in drug-drug intera
 ### Running the main file for date preprocessing
 Run main.py, watching for errors in saving, data is recommended to come from 2024 or newer.
 Once this is completed, analysis and training operations can begin.
+
 #### Setting Parameters
 - In model_test.py, line 155-172, the following arguments will be manually changed to test different subjects.
 - user_symptoms = ["Abdominal pain", "Nausea", "Gastrointestinal disorder"] : Change these to match entries from *Side_effects_unique*
@@ -49,8 +50,8 @@ These results are much more consistent, although still lacking in very strong co
 
 ### Video Explanation and Slides
 Linked here are supplmental components for my course SAT 5141.
-- Video guide and description of my justifications and breakdown of the code: XXX
-- Link to Google Drive slideshow paired with the video: XXX
+- Video guide and description of my justifications and breakdown of the code:(https://huskycast.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=a520f703-30a9-41b8-bc17-b3a90173469e)
+- Link to Google Drive slideshow paired with the video: https://docs.google.com/presentation/d/10FM04NeMmONqG19YPC1-_vg9YWEH-ABAQM5i9SyaZOk/edit?usp=sharing
 
 ### Research and Justifications
 
