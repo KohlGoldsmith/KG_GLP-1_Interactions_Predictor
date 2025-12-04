@@ -4,8 +4,9 @@ import requests
 import os
 import xml.etree.ElementTree as ET
 import glob
-import subprocess
+import zipfile
 
+# The origin for grabbing all the data used for the analysis.
 BASE_URL = "https://fis.fda.gov/content/Exports/"
 
 def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "dataset/faers_data"):
@@ -16,10 +17,13 @@ def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "data
 
     # Ensure output directory exists, else list it is unavailable
     os.makedirs(output_dir, exist_ok=True)
+
     # This is inputting the name as the input year and quarter for the name of the file.
     filename = f"faers_xml_{year}q{quarter}.zip"
+
     #Showing where the zip is downloaded
     zip_path = os.path.join(output_dir, filename)
+
     # This is the formula FAERS website uses for their naming conventions
     url = BASE_URL + filename
 
@@ -27,6 +31,7 @@ def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "data
     response = requests.get(url, stream=True)
     if response.status_code != 200:
         raise FileNotFoundError(f"Could not retrieve file from: {url}")
+
     # Demonstrating to the user that it is hunting for a specific file
     print(f"Downloading {filename}...")
     with open(zip_path, 'wb') as f:
@@ -39,52 +44,49 @@ def fetch_and_extract_faers_xml(year: int, quarter: int, output_dir: str = "data
     extract_dir = os.path.join(output_dir, f"faers_{year}q{quarter}")
     os.makedirs(extract_dir, exist_ok=True)
 
-    # Use 7zip to extract Deflate64-compressed zips, this is essential because deflate64 wasn't possible for Mac
-    subprocess.run(["7z", "x", zip_path, f"-o{extract_dir}"], check=True)
-
-    # Parse each XML found, making a matrix for the list
+    # Use zipfile to extract compressed zips, this is essential with the pandas version
+    with zipfile.ZipFile(zip_path, 'r') as zip_ref:
+        zip_ref.extractall(extract_dir)    # Parse each XML found, making a matrix for the list
     records = []
-    # Going through each xml file in the directory where the data was extracted
-    for xml_file in glob.glob(os.path.join(extract_dir, "*.xml")):
-        # Showing the tree of the filesystem
-        tree = ET.parse(xml_file)
-        root = tree.getroot()
-        xml_files = glob.glob(os.path.join(extract_dir, "**", "*.xml"), recursive=True)
+    # Find only the 1_ADR XML (the first one)
+    target_xml = glob.glob(os.path.join(extract_dir, "**", "1_ADR*.xml"), recursive=True)
 
-        records = []
-        for xml_file in xml_files:
-            print(f"Processing {xml_file}...")
-            tree = ET.parse(xml_file)
-            root = tree.getroot()
-            data = []
+    if not target_xml:
+        raise FileNotFoundError("No file matching '1_ADR*.xml' found.")
 
-            for report in root.findall("safetyreport"):
-                report_id = report.findtext("safetyreportid")
-                patient = report.find("patient")
-                if patient is None:
-                    continue
+    xml_file = target_xml[0]
+    print(f"Processing only: {xml_file}")
 
-                age = patient.findtext("patientonsetage")
-                sex = patient.findtext("patientsex")
+    tree = ET.parse(xml_file)
+    root = tree.getroot()
+    data = []
+    # Getting all safety reports for those in the list
 
-                reactions = patient.findall("reaction")
-                for d in patient.findall("drug"):
-                    drug = d.findtext("medicinalproduct")
-                    substance = d.findtext("activesubstance/activesubstancename")
-                    indication = d.findtext("drugindication")
+    for report in root.findall("safetyreport"):
+        report_id = report.findtext("safetyreportid")
+        patient = report.find("patient")
+        if patient is None:
+            continue
 
-                    for r in reactions:
-                        reaction_term = r.findtext("reactionmeddrapt")
-                        data.append({
-                            "report_id": report_id,
-                            "age": float(age) if age else None,
-                            "sex": sex,
-                            "drug": drug,
-                            "substance": substance,
-                            "indication": indication,
-                            "reaction": reaction_term
-                        })
+        age = patient.findtext("patientonsetage")
+        sex = patient.findtext("patientsex")
 
-    print ("Step 1 complete: XML extracted to: ", extract_dir)
-    return extract_dir
+        reactions = patient.findall("reaction")
+        for d in patient.findall("drug"):
+            drug = d.findtext("medicinalproduct")
+            substance = d.findtext("activesubstance/activesubstancename")
+            indication = d.findtext("drugindication")
 
+            for r in reactions:
+                reaction_term = r.findtext("reactionmeddrapt")
+                data.append({
+                    "report_id": report_id,
+                    "age": float(age) if age else None,
+                    "sex": sex,
+                    "drug": drug,
+                    "substance": substance,
+                    "indication": indication,
+                    "reaction": reaction_term
+                })
+    print("Step 1 complete: XML extracted to:", extract_dir)
+    return extract_dir, data
