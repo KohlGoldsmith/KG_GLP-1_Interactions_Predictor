@@ -19,10 +19,10 @@ Run main.py, watching for errors in saving, data is recommended to come from 202
 Once this is completed, analysis and training operations can begin.
 #### Setting Parameters
 - In model_test.py, line 155-172, the following arguments will be manually changed to test different subjects.
-- user_symptoms = [<u>"Abdominal pain", "Nausea", "Gastrointestinal disorder"<u/>] : Change these to match entries from *Side_effects_unique*
-- user_input_base = {'age': *61*} : This should be changed to the subject's age
-- *female*_col = next((c for c in sex_cols if *'female' in c.lower() and 'male'* not in c.lower()), None) if *female_col*: user_input_base[*female_col*] = 1 : Change all female lines to male and vice versa to input a male subject
-- if '*SEMAGLUTIDE*' in col.upper(): user_input_base[col] = 1 : Change to the GLP-1 tested for
+- user_symptoms = [<u>"Abdominal pain", "Nausea", "Gastrointestinal disorder"</u>] : Change these to match entries from *Side_effects_unique*
+- user_input_base = {'age': <u>61</u>} : This should be changed to the subject's age
+- <u>female</u>_col = next((c for c in sex_cols if <u>'female' in c.lower() and 'male'</u> not in c.lower()), None) if <u>female_col</u>: user_input_base[<u>female_col</u>] = 1 : Change all female lines to male and vice versa to input a male subject
+- if '<u>SEMAGLUTIDE</u>' in col.upper(): user_input_base[col] = 1 : Change to the GLP-1 tested for
 
   
 
