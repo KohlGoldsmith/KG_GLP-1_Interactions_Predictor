@@ -24,7 +24,11 @@ Once data has successfully been pre-processed into a faers_with_embeddings_ready
 <img width="1370" height="945" alt="image" src="https://github.com/user-attachments/assets/c0ac26b5-7e28-4c1d-9133-509a4b25845c" />
 
 
-Originally, a Random-Forest model was used for analysis, however due to its poor results stemming from Random-Forest's aggressive guessing of "Yes" to satisfy the balance requirement, it led to many False Positives. This was substituted for XGBoost, an algorithm  that uses an ensemble of decision trees to solve problems like classification and regression. It is known for its high performance, speed, and scalability, and can handle large datasets by using parallel and distributed computing [8].
+Originally, a Random-Forest model was used for analysis, however due to its poor results stemming from Random-Forest's aggressive guessing of "Yes" to satisfy the balance requirement, it led to many false positives. This was substituted for XGBoost, an algorithm  that uses an ensemble of decision trees to solve problems like classification and regression. It is known for its high performance, speed, and scalability, and can handle large datasets by using parallel and distributed computing [8]. 
+
+However, after implementing this more robust model, I discovered that using MultiOutputClassifier in XGBoost creates a Binary Relevance problem. It trains a separate model for every single drug of which this list has several hundred. This led to an issue of training occuring for an unending length, obviously not realistic or achievable with this project's resources.
+
+A neural network model was eventually chosen as a middle ground, as neural networks perform well on data with high-dimensional input and output space [9].
 
 ##Use the setting above within 'rf_model_test.py' to set testing parameters. This should be possible to implement on a webpage or application front-end in future iterrations.
 
@@ -65,3 +69,8 @@ Relevance: Provides the economic data on the cost of non-optimized drug therapy 
 Relevance: Provides the statistics for the projected economic burden of cardiovascular disease in the target population
 
 [8] XGBoost explanation https://www.geeksforgeeks.org/machine-learning/xgboost/
+
+[9] Nam, J., Kim, J., Mencía, E. L., Gurevych, I., & Fürnkranz, J. (2014). Large-scale Multi-label Text Classification - Revisiting Neural Networks. Machine Learning and Knowledge Discovery in Databases, 437–452
+
+
+
