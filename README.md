@@ -75,25 +75,18 @@ Another possibility is my lack of understanding in fully understanding model tun
 
 ### References
 [1] Lincoff, A. M., et al. (2023). Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. The New England Journal of Medicine, 389, 2221–2232. https://doi.org/10.1056/NEJMoa2307563
-Relevance: Establishes the high-risk cardiovascular profile of the target population and the drug's efficacy, justifying the "High Risk" classification.
 
-[2] Shu, Y., et al. (2022). Gastrointestinal adverse events associated with semaglutide: A pharmacovigilance study based on FDA Adverse Event Reporting System. Frontiers in Endocrinology, 13, 996179. https://doi.org/10.3389/fendo.2022.996179
-Relevance: Primary literature analyzing the exact database (FAERS) you are using; validates the prevalence of GI adverse events.
+[2] Shu, Y., et al. (2022). Gastrointestinal adverse events associated with semaglutide: A pharmacovigilance study based on FDA Adverse Event Reporting System. Frontiers in Endocrinology, 13, 996179. https://pubmed.ncbi.nlm.nih.gov/36339230/
 
-[3] Hooper, A. J., & Liu, X. (2024). GLP-1RA-induced delays in gastrointestinal motility: Predicted effects on coadministered drug absorption by PBPK analysis. Clinical Pharmacology & Therapeutics. https://doi.org/10.1002/cpt.3188
-Relevance: Provides the pharmacokinetic mechanism (delayed gastric emptying) that causes the drug-drug interactions your model seeks to predict.
+[3] Viviani, R., Berres, J. and Stingl, J.C. (2024), Phenotypic Models of Drug–Drug-Gene Interactions Mediated by Cytochrome Drug-Metabolizing Enzymes. Clin Pharmacol Ther, 116: 592-601. https://doi.org/10.1002/cpt.3188
 
-[4] Sodhi, M., et al. (2023). Risk of Gastrointestinal Adverse Events Associated With Glucagon-Like Peptide-1 Receptor Agonists for Weight Loss. JAMA, 330(18), 1795–1797. https://doi.org/10.1001/jama.2023.19574
-Relevance: Quantifies the risk of severe side effects (pancreatitis, gastroparesis) in the weight-loss population specifically.
+[4] Shu Y, He X, Wu P, Liu Y, Ding Y, Zhang Q. Gastrointestinal adverse events associated with semaglutide: A pharmacovigilance study based on FDA adverse event reporting system. Front Public Health. 2022 Oct 20;10:996179. doi: 10.3389/fpubh.2022.996179. PMID: 36339230; PMCID: PMC9631444.
 
-[5] Spitery, A., et al. (2024). Legal, safety, and practical considerations of compounded injectable semaglutide. Journal of the American College of Clinical Pharmacy, 7(9), 941-946. https://doi.org/10.1002/jac5.1999
-Relevance: Directly addresses the safety gap in compounded medications, a key differentiator of your project.
+[5]  Spitery A, Elder MJ, Farhat N, Mohammad I, Lobkovich A. Legal, safety, and practical considerations of compounded injectable semaglutide. J Am Coll Clin Pharm. 2024; 7(9): 941-946. doi:10.1002/jac5.1999
 
-[6] Watanabe, J. H., McInnis, T., & Hirsch, J. D. (2018). Cost of Prescription Drug-Related Morbidity and Mortality. Annals of Pharmacotherapy, 52(9), 829–837. https://doi.org/10.1177/1060028018765159
-Relevance: Provides the economic data on the cost of non-optimized drug therapy and adverse events.
+[6] Watanabe JH, McInnis T, Hirsch JD. Cost of Prescription Drug–Related Morbidity and Mortality. Annals of Pharmacotherapy. 2018;52(9):829-837. doi:10.1177/1060028018765159
 
-[7] Martin, S. S., Aday, A. W., Almarzooq, Z. I., et al. (2024). 2024 Heart Disease and Stroke Statistics: A Report of US and Global Data From the American Heart Association. Circulation, 149. https://doi.org/10.1161/CIR.0000000000001209
-Relevance: Provides the statistics for the projected economic burden of cardiovascular disease in the target population
+[7] Martin, Seth S, et al. “2024 Heart Disease and Stroke Statistics: A Report of US and Global Data from the American Heart Association.” Circulation, vol. 149, no. 8, 24 Jan. 2024, www.ahajournals.org/doi/10.1161/CIR.0000000000001209, https://doi.org/10.1161/cir.0000000000001209.
 
 [8] XGBoost explanation: https://www.geeksforgeeks.org/machine-learning/xgboost/
 
