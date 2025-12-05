@@ -55,8 +55,12 @@ Linked here are supplmental components for my course SAT 5141.
 
 ### Research and Justifications
 
+#### Dataset
+
+The HODDI dataset is a decade of collected drug-report logs that contain 109,744 records involving 2,506 unique drugs and 4,569 unique side effects, specifically curated to capture multi-drug interactions and their collective impact on adverse effects [10]. High order drug interactions are drug combinations involving three or more drugs which produce an effect different from the sum of the individual drug effects. The main source of information for HODDI comes from the FAERS database from the U.S. Food and Drug Administration. The data structure is contained in CSV files with five essential columns detailing information about drug interaction reports: report identifier, recommended CUI, DrugBank ID, hyperedge labels (1 for positive samples, -1 for negative samples), and temporal information (year and quarter). This particular dataset is built on the back of previous datasets and studies including SIDER, OFFSIDES, TWOSIDES, and HPRD. The things this dataset is achieving to fix include lack of interaction lists, as separate datasets fail to wholly and completely capture the broad range of medications present in the market and all of their interactions and individual side effects. Additionally,  Inconsistent data quality across different sources (Ismail & Akram, 2022), affect the reliability of predictions with previous attempts, and finally Data sparsity issues in polypharmacy settings, where the number of possible drug combinations grows exponentially while available data remains limited (Tekin et al., 2017; 2018). They have benchmarked the HODDI data with three different model architectures: Multi-Layer Perceptron (MLP), Traditional Graph Neural Networks (GCN, GAT), and Hypergraph Architectures. Their best results came from using the HGNN-SA model, with 0.906 precision overall, F1 0.933, AUC 0.957, and PRAUC of 0.939. The researchers state in relation to the results, “The strong performance of both GNN models and the MLP model suggests that HODDI provides rich and high-quality feature representations, making it a valuable resource for advancing machine learning approaches in drug-drug interaction studies.”  HODDI can work as a basis for my analysis of adverse drug-drug interactions, providing others with the means to better predict the reasons behind their symptoms and if a change in medication can remediate them.
+
 #### Target Population 
-The population selected for this model comprises individuals diagnosed with Type 2 Diabetes Mellitus, Obesity (BMI ≥ 30 kg/m²), or any individuals who are currently prescribed Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) [1]. 
+The population selected for this model comprises individuals diagnosed with Type 2 Diabetes Mellitus, Obesity (BMI ≥ 30 kg/m²), or any individuals who are currently prescribed Glucagon-like Peptide-1 Receptor Agonists (GLP-1 RAs) [1].  I chose this subject because the area of interest in GLP-1 drugs is exploding. According to Fang Heglanda, data is showing a doubling in use from 2019 to 2022, and more recently [11]. Usage data in 2024 showing that 1,449,442 patients were prescribed a GLP-1 RA between January 2018 and September 2024, with 6,341,367 total prescriptions during this period [12]. I have family members who take GLP-1 medications and the proper usage of this drug is key in continuing the fight against rising diabetes and obesity globally. 
 
 #### High Risk Population
 Cardiovascular disease is very righ risk in this population and GLP-1 agonists are a newer form of preventative measure against this for issues such as glycemic control [1]. The potential for high-order adverse drug reactions is elevated in this group, due to the newness of mass adoption of these drugs. Additionally, the direct medical costs and prevalence of cardiovascular conditions are projected to rise significantly through to 2050 [7]. Therefore, seeking to predict and prevent adverse drug reactions for this population is the focus of this application. Drug-related morbidity currently costs the U.S. healthcare system an estimated $528 billion annually [6].
@@ -96,6 +100,11 @@ Relevance: Provides the statistics for the projected economic burden of cardiova
 [9] Nam, J., Kim, J., Mencía, E. L., Gurevych, I., & Fürnkranz, J. (2014). Large-scale Multi-label Text Classification - Revisiting Neural Networks. Machine Learning and Knowledge Discovery in Databases, 437–452
 
 [10] HODDI Dataset: https://github.com/TIML-Group/HODDI
+
+[11] Hegland TA, Fang Z, Bucher K. GLP-1 Medication Use for Type 2 Diabetes Has Soared. JAMA. 2024;332(12):952–953. doi:10.1001/jama.2024.18219
+
+[12] Samuel Gratzl, Patricia J Rodriguez, Brianna M Goodwin Cartwright, Charlotte Baker, Nicholas L Stucky medRxiv 2024.01.18.24301500; doi: https://doi.org/10.1101/2024.01.18.24301500 Mattingly TJ, Conti RM. Marketing and Safety Concerns for Compounded GLP-1 Receptor Agonists. JAMA Health Forum. 2025;6(1):e245015. doi:10.1001/jamahealthforum.2024.5015
+
 
 
 
